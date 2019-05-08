@@ -1,0 +1,17 @@
+{
+    "name": "bartoszlewandowski/reactphp",
+    "authors": [
+        {
+            "name": "Bartek Lewy",
+            "email": "lewandowskibartosz@icloud.com"
+        }
+    ],
+    "require": {
+        "react/event-loop": "^1.1",
+        "react/socket": "^1.2",
+        "react/http": "^0.8.4",
+        "react/promise": "^2.7",
+        "react/child-process": "^0.6.1",
+        "react/filesystem": "^0.1.2"
+    }
+}
