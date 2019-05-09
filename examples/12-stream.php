@@ -11,7 +11,7 @@ use function React\Promise\Stream\unwrapReadable;
 $loop = Factory::create();
 $filesystem = Filesystem::create($loop);
 
-$server = new Server(function (ServerRequestInterface $request) use ($filesystem) {
+$server = new Server(function () use ($filesystem) {
 
     $filePath = 'examples/files/stream-video.mp4';
     $file = $filesystem->file($filePath);

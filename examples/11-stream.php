@@ -2,12 +2,17 @@
 
 require __DIR__ .'/../vendor/autoload.php';
 
-$loop = \React\EventLoop\Factory::create();
+use React\EventLoop\Factory;
+use React\Stream\ReadableResourceStream;
+use React\Stream\ThroughStream;
+use React\Stream\WritableResourceStream;
 
-$readable = new \React\Stream\ReadableResourceStream(STDIN, $loop);
-$output = new \React\Stream\WritableResourceStream(STDOUT, $loop);
+$loop = Factory::create();
 
-$through = new \React\Stream\ThroughStream('strtoupper');
+$readable = new ReadableResourceStream(STDIN, $loop);
+$output = new WritableResourceStream(STDOUT, $loop);
+
+$through = new ThroughStream('strtoupper');
 $readable->pipe($through)->pipe($output);
 
 $loop->run();

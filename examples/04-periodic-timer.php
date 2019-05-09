@@ -1,13 +1,13 @@
 <?php
 use React\EventLoop\Factory;
-use React\EventLoop\Timer\Timer;
+use React\EventLoop\TimerInterface;
 
 require __DIR__ . '/../vendor/autoload.php';
 
 $i = 1;
 
 $loop = Factory::create();
-$loop->addPeriodicTimer(1, function(Timer $timer) use ($loop, &$i) {
+$loop->addPeriodicTimer(1, function(TimerInterface $timer) use ($loop, &$i) {
     if($i > 10) {
         $loop->cancelTimer($timer);
     }
